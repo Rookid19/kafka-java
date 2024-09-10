@@ -2,3 +2,5 @@ out/
 !**/src
 /basics/out
 /basics/build
+/build/
+/out/
