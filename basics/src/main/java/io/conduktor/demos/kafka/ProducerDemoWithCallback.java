@@ -23,9 +23,10 @@ public class ProducerDemoWithCallback {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
         for(int i = 0; i <10; i++){
+         String key = "id_" + i;  // A unique key for each message
 
         // create a producer record
-        ProducerRecord<String, String>  producerRecord = new ProducerRecord<>("demo_java","hello world");
+        ProducerRecord<String, String>  producerRecord = new ProducerRecord<>("demo_java",key,"helloxxxx world");
 
         // send the data - asynchronous
         producer.send(producerRecord, new Callback() {
@@ -45,7 +46,7 @@ public class ProducerDemoWithCallback {
         });
 
         try{
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
